@@ -43,6 +43,8 @@ var User = sequelize.define('user', {
 });
 
 User.sync();
+
+// User.sync({force:true})
 app.use(bodyParser.json());
 
 app.post('/api/user', function(req, res) {
