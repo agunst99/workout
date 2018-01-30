@@ -1,3 +1,4 @@
+require('dotenv').config();
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -9,6 +10,7 @@ User.sync(); // sync( {force: true}), to drop then create each time the app star
 
 app.use(bodyParser.json());
 app.use(require('./middleware/headers'));
+app.use(require('./middleware/validate-session'));
 //login route
 app.use('/api/login', require('./routes/session'));
 app.use('/api/user', require('./routes/user'));
